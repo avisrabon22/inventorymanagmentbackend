@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Orders {
+public class Orders extends BaseModel{
     @NotNull
     @Column(unique = true)
     private String orderNumber;
@@ -19,7 +19,7 @@ public class Orders {
     private double totalAmount;
     @NotNull
     @OneToMany
-    private List<ProductItems> products;
+    private List<Products> products;
     @NotNull
     @ManyToOne
     private Users user;
