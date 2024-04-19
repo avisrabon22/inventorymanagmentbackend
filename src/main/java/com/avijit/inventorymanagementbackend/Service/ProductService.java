@@ -3,6 +3,7 @@ package com.avijit.inventorymanagementbackend.Service;
 
 import com.avijit.inventorymanagementbackend.DTO.ProductRequestDTO;
 import com.avijit.inventorymanagementbackend.DTO.ProductResponseDto;
+import com.avijit.inventorymanagementbackend.Model.ProductCategory;
 import com.avijit.inventorymanagementbackend.Model.Products;
 import com.avijit.inventorymanagementbackend.Repository.ProductRepo;
 import org.springframework.stereotype.Service;
@@ -47,6 +48,9 @@ public class ProductService implements ProductServiceInterface{
         products.setImage(productRequestDTO.getImage());
         products.setBarCode(productRequestDTO.getBarCode());
         products.setQuantity(productRequestDTO.getQuantity());
+        ProductCategory productCategory = new ProductCategory();
+        productCategory.setId(productRequestDTO.getProductCategory());
+        products.setProductCategory(productCategory);
         productRepo.save(products);
     }
 

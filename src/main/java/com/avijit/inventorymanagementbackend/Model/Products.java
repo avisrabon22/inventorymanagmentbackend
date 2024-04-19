@@ -18,7 +18,7 @@ public class Products extends BaseModel{
     private int price;
     private String description;
     private String image;
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String barCode;
     @Column(nullable = false)
     private int quantity;

@@ -16,5 +16,5 @@ public class ProductRequestDTO {
     private String image;
     private String barCode;
     private int quantity;
-    private String productCategory;
+    private Long productCategory;
 }
