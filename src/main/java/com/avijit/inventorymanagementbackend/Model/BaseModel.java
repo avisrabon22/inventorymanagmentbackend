@@ -4,8 +4,11 @@ package com.avijit.inventorymanagementbackend.Model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.util.Date;
+
 
 @Getter
 @Setter
@@ -14,10 +17,18 @@ public class BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @CreatedBy
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private String createdAt;
-    @LastModifiedDate
+    @Column(nullable = false, updatable = false)
+    private Date createdAt = new Date();
+    @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private String updatedAt;
+    @Column(nullable = false)
+    private Date updatedAt = new Date();
+
+
+    @PreUpdate
+    public void setUpdatedAt() {
+        this.updatedAt = new Date();
+    }
 }

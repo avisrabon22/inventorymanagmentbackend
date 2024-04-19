@@ -23,8 +23,8 @@ public class CategoryService implements CategoryServiceInterface{
         List<CategoryResponseDto> categoryResponseDtos = new ArrayList<>();
         categoryRepository.findAll().forEach(category -> {
             CategoryResponseDto categoryResponseDto = new CategoryResponseDto();
-            categoryResponseDto.setCategoryName(category.getCategoryName());
             categoryResponseDto.setId(category.getId());
+            categoryResponseDto.setCategoryName(category.getCategoryName());
             categoryResponseDtos.add(categoryResponseDto);
         });
         return categoryResponseDtos;
@@ -35,6 +35,7 @@ public class CategoryService implements CategoryServiceInterface{
     public void addCategory(CategoryRequestDto categoryRequestDto) {
         ProductCategory productCategory = new ProductCategory();
         productCategory.setCategoryName(categoryRequestDto.getCategoryName());
+
         categoryRepository.save(productCategory);
     }
 
