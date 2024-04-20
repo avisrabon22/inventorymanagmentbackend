@@ -2,9 +2,7 @@ package com.avijit.inventorymanagementbackend.Model;
 
 
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +20,7 @@ public class Products extends BaseModel{
     private String barCode;
     @Column(nullable = false)
     private int quantity;
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ProductCategory")
     private ProductCategory productCategory;
 }
