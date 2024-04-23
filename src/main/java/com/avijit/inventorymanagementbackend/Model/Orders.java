@@ -16,7 +16,7 @@ public class Orders extends BaseModel{
     @NotNull
     private String orderDate;
     @NotNull
-    private double totalAmount;
+    private int totalAmount;
     @NotNull
     @OneToMany
     private List<Products> products;
