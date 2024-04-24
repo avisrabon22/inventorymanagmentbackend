@@ -13,10 +13,9 @@ import java.util.List;
 public class Cart extends  BaseModel{
     @Column(nullable = false)
     private int totalPrice;
-    @Column(nullable = false)
-    @OneToOne
+    @OneToOne()
+    @JoinColumn(name = "user_id",nullable = false)
     private Users user;
-    @OneToMany
-    @Column(nullable = false)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Products> products;
 }

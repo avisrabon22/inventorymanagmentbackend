@@ -11,7 +11,7 @@ public class OrderResponseDto {
     private String orderNumber;
     private String orderDate;
     private int totalAmount;
-    private List<String> products;
+    private List<String> produclts;
     private String user;
     private String orderStatus;
 }
